@@ -154,7 +154,29 @@ int main(int argc, char *argv[], char * envp[]){
 		}
 
 
-  ///////
+  		if(strcmp(parsed[0],"echo")==0){		// echo
+			int x = 1;
+			int param = x;
+			if(parsed[1][0] == 45){
+				param = 2;
+				x = 2;
+			}
+			for(; x<i; x++){
+				if(strcmp(parsed[x],"\"")==0)
+					continue;
+	
+				printf(" ");
+				for(int y=0; y<strlen(parsed[x]); y++){
+					if(parsed[x][y]==34)
+						continue;
+					printf(GRE"%c",parsed[x][y]);
+				}
+				
+			}
+			if(param != 2)
+			printf("\n");
+			flag++;
+		}
 
 		if(strcmp(parsed[0],"pwd")==0){			// pwd
 			getcwd(cur_dir,sizeof(cur_dir));
